@@ -1,56 +1,72 @@
 #include <iostream>
-
-struct employee{
-char Name[20];
-char EmployeeID[10];
-int Experience;
-float Salary
-;
-
-};
+#include<stdio.h>
+#include<stdlib.h>
+#include<cstring>
+#include<math.h>
+#include<time.h>
+using namespace std;
 
 int main()
 {
-    struct employee E1;
-    struct employee E2;
-    struct employee E3;
-    struct employee E4;
-    struct employee E5;
+    //strlen retrieves length of the string
+    char name[]="HELLO";
+    int length1,length2;
+     length1=strlen(name);
+     length2=strlen("HELLO WORLD!");
+     printf(" length of %s is %d\n length of HELLO WORLD! is %d\n",name,length1,length2);
 
-    printf("Enter Name, ID, Experience years, Salary of employee 1:\n");
-    gets(E1.Name);
-    gets(E1.EmployeeID);
-    scanf("%d",&E1.Experience);
-    scanf("%f",&E1.Salary);
-    printf("Details of Employee 1 are:\n Name: %s \n ID: %s \n Years of Experience: %d \n Salary: %f \n",E1.Name,E1.EmployeeID,E1.Experience,E1.Salary);
+    //strcat appends source to destination
+    char dest[]="This is an ";
+    char src[]="example.";
 
-    printf("Enter Name, ID, Experience years, Salary of employee 2:\n");
-    gets(E2.Name);
-    gets(E2.EmployeeID);
-    scanf("%d",&E2.Experience);
-    scanf("%f",&E2.Salary);
-    printf("Details of Employee 2 are:\n Name: %s \n ID: %s \n Years of Experience: %d \n Salary: %f \n",E2.Name,E2.EmployeeID,E2.Experience,E2.Salary);
+    strcat(dest,src);
+    printf("Appended string: %s\n",dest);
 
-    printf("Enter Name, ID, Experience years, Salary of employee 3:\n");
-    gets(E3.Name);
-    gets(E3.EmployeeID);
-    scanf("%d",&E3.Experience);
-    scanf("%f",&E3.Salary);
-    printf("Details of Employee 3 are:\n Name: %s \n ID: %s \n Years of Experience: %d \n Salary: %f\n",E3.Name,E3.EmployeeID,E3.Experience,E3.Salary);
+    //strrchr gives remaining string or char after a certain char
+    char Name[]="unschool";
+    char ch='s';
+    char* value;
+    value=strrchr(Name,ch);
+    printf("%s",value);
 
-    printf("Enter Name, ID, Experience years, Salary of employee 1:\n");
-    gets(E4.Name);
-    gets(E4.EmployeeID);
-    scanf("%d",&E4.Experience);
-    scanf("%f",&E4.Salary);
-    printf("Details of Employee 4 are:\n Name: %s \n ID: %s \n Years of Experience: %d \n Salary: %f\n",E4.Name,E4.EmployeeID,E4.Experience,E4.Salary);
+    //strcmp for comparing two strings
+    char string1[]="abcd";
+    char string2[]="abcd";
+    int res=strcmp(string1,string2);
+    if(res==0){
+        printf("\nStrings are equal!");
+    }
+    else{
+        printf("\nStrings are not equal!");
+    }
 
-    printf("Enter Name, ID, Experience years, Salary of employee 5:\n");
-    gets(E5.Name);
-    gets(E5.EmployeeID);
-    scanf("%d",&E5.Experience);
-    scanf("%f",&E5.Salary);
-    printf("Details of Employee 5 are:\n Name: %s \n ID: %s \n Years of Experience: %d \n Salary: %f\n",E5.Name,E5.EmployeeID,E5.Experience,E5.Salary);
+    //strrev reverses a given string
+    char s1[50]="1234567890";
+    char *p;
+    p=strrev(s1);
+    printf("\nAfter reversing %s.",p);
 
-    return 0;
+    //strlwr and strupr
+    printf("\n to lowercase: %s ",strlwr(string1));
+    printf("\n to uppercase: %s",strupr(string1));
+
+    //pow and sqrt
+    int num;
+    printf("\nEnter a number:");
+    scanf("%d",&num);
+    printf("\n square root of %d is %f",num,sqrt(num));
+    printf("\n square of %d is %f",num,pow(num,2));
+
+    //ceil
+    printf("\n%f",ceil(2.5));
+
+    //random number generator
+    int i,n;
+    n=5;
+    srand(time(0));
+    for(i=0;i<n;i++){
+        printf("\n %d\n",rand()%50);
+    }
+
+      return 0;
 }
