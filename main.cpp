@@ -1,43 +1,96 @@
 #include <iostream>
-#include<math.h>
 
 using namespace std;
 
-double area(double radius){
-double area_circle=3.14*radius*radius;
-return area_circle;
+int choice;
+class operation
+{
+    int num1,num2,result;
+public:
+    operation()
+    {
+        cout<<"\n Enter number 1: ";
+        cin>>num1;
+        cout<<"\n Enter number 2: ";
+        cin>>num2;
+    }
+
+void get()
+{
+        cout<<"\n Enter number 1: ";
+        cin>>num1;
+        cout<<"\n Enter number 2: ";
+        cin>>num2;
+}
+void addition()
+{
+    result=num1+num2;
+    cout<<"\nSum of "<<num1<<" and "<<num2<<" is "<<result;
+}
+void multiplication()
+{
+    result=num1*num2;
+    cout<<"\nProduct of "<<num1<<" and "<<num2<<" is "<<result;
+}
+void subtraction()
+{
+    result=num1-num2;
+    cout<<"\nDifference of "<<num1<<" and "<<num2<<" is "<<result;
+}
+void division()
+{
+    result=num1/num2;
+    cout<<"\nQuotient of "<<num1<<" and "<<num2<<" is "<<result;
+}
+void mod()
+{
+    result=num1%num2;
+    cout<<"\nRemainder of "<<num1<<" and "<<num2<<" is "<<result;
 }
 
-double area(double length,double breadth){
-double area_rect=length*breadth;
-return area_rect;
+~operation()
+{
+    cout<<"\n Destructor called! \n Ending the program....";
 }
 
-double area(double side1,double side2,double side3){
-    double s=(side1+side2+side3)/2;
-double area_triangle=sqrt(s*(s-side1)*(s-side2)*(s*side3));
-return area_triangle;
-}
-
-
+};
 int main()
 {
-    double radius,length,breadth,side1,side2,side3;
-    cout<<"\nEnter radius of circle:\t";
-    cin>>radius;
-    cout<<"\nArea of circle of radius "<<radius<<"cm is: "<<(area(radius));
+  cout<<"\t---------------------*CALCULATOR*---------------------\n\n";
+  cout<<" 1.addition \n 2.multiplication \n 3.subtraction \n 4.division \n 5.mod \n";
+  cout<<"\nEnter the choice of operation you want to perform respectively: \n";
+  cin>>choice;
+  operation opr;
 
-    cout<<"\nEnter length and breadth of rectangle:\t";
-    cin>>length;
-    cin>>breadth;
-    cout<<"\nArea of rectangle of length "<<length<<"cm and breadth "<<breadth<<"cm is: "<<(area(length,breadth));
+  int flag=1;
+  while(flag!=9){
 
-     cout<<"\nEnter sides of triangle:\t";
-    cin>>side1>>side2>>side3;
+  if(flag==0){
+    cout<<"\nEnter the choice of operation you want to perform respectively: \n";
+    cin>>choice;
+    opr.get();
+  }
 
-    cout<<"\nArea of triangle of sides "<<side1<<","<<side2<<","<<side3<<"cm is: "<<(area(side1,side2,side3));
+  switch(choice)
+  {
+      case 1:opr.addition();
+             break;
+      case 2:opr.multiplication();
+             break;
+      case 3:opr.subtraction();
+             break;
+      case 4:opr.division();
+             break;
+      case 5:opr.mod();
+             break;
+      default:
+        cout<<"Invalid choice!!";
+        break;
+  }
 
-    return 0;
+  cout<<"\nDo you want to perform another operation?";
+  cout<<"\nEnter 0 for YES and 9 for NO\n";
+  cin>>flag;
+
 }
-
-
+}
